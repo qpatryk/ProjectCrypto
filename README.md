@@ -1,6 +1,16 @@
 # ProjectCrypto
 EGZAMIN
 
+# Portal Kryptowalut
+
+Ten projekt to portal kryptowalutowy, który pozwala na:
+
+* Śledzenie kursów kryptowalut
+* Kupowanie i sprzedawanie kryptowalut
+* Dowiadywanie się więcej o świecie krypto
+
+
+
 ## Autor
 
 * Patryk Nyczka
