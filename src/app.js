@@ -1,22 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import TopCryptos from "../components/TopCryptos";
+import LoginForm from "../components/LoginForm";
+import ResetPassword from "../components/ResetPassword";
 
-import LiveRates from "./components/LiveRates.js";
-import TopCryptos.js;
-import LoginForm from "../loginform.js";
-
-function App() {
-    // ...
+const App = () => {
+    const [user, setUser] = useState(null);
 
     return (
-        <div className="App">
-      // ...
-
-            <LiveRates />
-            <TopCryptos />
-            <LoginForm />
-        </div>
+        <Router>
+            <div>
+                <TopCryptos user={user} />
+                <Route path="/login" exact>
+                    <LoginForm setUser={setUser} />
+                </Route>
+                <Route path="/reset-password" exact>
+                    <ResetPassword />
+                </Route>
+            </div>
+        </Router>
     );
-}
+};
 
-export default App;
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
