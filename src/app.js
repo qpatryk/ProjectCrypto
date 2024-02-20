@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import TopCryptos from "../components/TopCryptos";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+
 import LoginForm from "../components/LoginForm";
 import ResetPassword from "../components/ResetPassword";
-
-const App = () => {
-    const [user, setUser] = useState(null);
+//this one works better with switch
+function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
         <Router>
-            <div>
-                <TopCryptos user={user} />
-                <Route path="/login" exact>
-                    <LoginForm setUser={setUser} />
+            <Switch>
+                <Route path="../login">
+                    <LoginForm onLogin={() => setIsLoggedIn(true)} />
                 </Route>
-                <Route path="/reset-password" exact>
+                <Route path="../reset-password">
                     <ResetPassword />
                 </Route>
-            </div>
+                <Route path="/">
+                    {isLoggedIn ? <h1>Witaj!</h1> : <Redirect to="../login" />}
+                </Route>
+            </Switch>
         </Router>
     );
-};
+}
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+export default App;
