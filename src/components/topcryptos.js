@@ -15,7 +15,7 @@ function TopCryptos() {
             console.log("Połączono z WebSocketem CoinGecko");
 
             // Subskrybuj strumień danych dla wybranych kryptowalut
-            const symbols = ['BTC', 'ETH']; // Dostosuj symbole do swoich potrzeb
+            const symbols = ['BTC', 'ETH', 'BNB', 'ADA', 'SOL', 'XRP', 'LUNA', 'DOT', 'AVAX', 'SHIB']; // Dostosuj symbole do swoich potrzeb
             socket.emit("subscribe", symbols.map((symbol) => `ticker:${symbol}-USD`));
         });
 
